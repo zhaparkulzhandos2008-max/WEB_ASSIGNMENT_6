@@ -2,7 +2,7 @@
 
 Team: Alikhan, Zhandos, Adilzhan | SE-2516
 Repository: https://github.com/zhaparkulzhandos2008-max/WEB_ASSIGNMENT_6.git
-Previously deployed site: https://zhaparkulzhandos2008-max.github.io/WEB_ASSIGNMENT_5/ 
+Previously deployed site: https://zhaparkulzhandos2008-max.github.io/WEB_ASSIGNMENT_6/
 
 Open `index.html` with an internet connection (jQuery CDN). Tasks 0–9 are implemented in `script.js` under `Assignment 6` section. HTML, CSS, and JavaScript are separate. Images are local SVG assets.
 
