@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+     <meta charset="utf-8" />
+     <meta content="width=device-width,initial-scale=1" name="viewport" />
+     <title>
+          NovaWiki
+     </title>
+     <link href="style.css" rel="stylesheet" />
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+          onerror="this.onerror=null;this.src='jquery.min.js'"></script>
+     <script defer="" src="script.js">
+     </script>
+</head>
+
+<body>
+     <div id="scrollProgress" aria-hidden="true"></div>
+     <div id="toast" role="status" aria-live="polite"></div>
+     <header>
+          <h2>
+               ✳ NovaWiki
+          </h2>
+          <nav aria-label="Main navigation" id="mainNav">
+               <a href="#articles">
+                    Articles
+               </a>
+               <a href="#register">
+                    Register
+               </a>
+               <a href="#faq">
+                    FAQ
+               </a>
+          </nav>
+          <div class="header-tools"><button aria-pressed="false" id="themeToggle">☾ Night mode</button><button
+                    aria-pressed="false" id="soundToggle">♪ Sound off</button></div><button id="openModal">
+               Contact us
+          </button>
+     </header>
+     <main>
+          <section class="hero">
+               <p class="eyebrow">
+                    THE OPEN TECH ENCYCLOPEDIA
+               </p>
+               <h1>
+                    Curiosity starts
+                    <em>
+                         here.
+                    </em>
+               </h1>
+               <p>
+                    Explore the foundations of web development, one article at a time.
+               </p>
+               <a class="action" href="#articles">
+                    Explore articles ↗
+               </a>
+               <p aria-live="off" id="dateTime">
+               </p>
+          </section>
+          <section id="articles">
+               <div class="heading">
+                    <div>
+                         <p class="eyebrow">
+                              THE LIBRARY
+                         </p>
+                         <h2>
+                              Explore the essentials.
+                         </h2>
+                    </div>
+                    <button id="colorButton">
+                         ◐ Change background
+                    </button>
+               </div>
+               <div class="search-panel"><label for="wikiSearch">Search NovaWiki articles</label><input id="wikiSearch"
+                         type="search" autocomplete="off" placeholder="Try HTML, CSS, JavaScript…"
+                         aria-controls="searchSuggestions" />
+                    <div id="searchSuggestions" class="suggestions" role="listbox" hidden></div>
+                    <p id="searchStatus" role="status"></p>
+               </div>
+               <div class="library-tools">
+                    <div class="filters"><button class="filter active" data-category="all">All</button><button
+                              class="filter" data-category="html">HTML</button><button class="filter"
+                              data-category="css">CSS</button><button class="filter"
+                              data-category="javascript">JavaScript</button></div>
+                    <p id="articleCount" role="status"></p>
+               </div>
+               <div class="cards"></div>
+               <section class="code-demo">
+                    <h3>Code snippets</h3>
+                    <p>Copy an example and try it in your editor.</p>
+                    <div class="snippet"><code>console.log("Hello NovaWiki!");</code><button class="copy-code"
+                              type="button">Copy</button></div>
+                    <div class="snippet">
+                         <code>$(document).ready(function() { console.log("jQuery is ready!"); });</code><button
+                              class="copy-code" type="button">Copy</button></div>
+               </section>
+               <div class="gallery">
+                    <h3>Visual learning cards</h3>
+                    <p>Illustrations load as they enter the viewport.</p>
+                    <div class="lazy-grid"><img class="lazy-image" data-src="assets/html.svg" alt="HTML illustration"
+                              width="320" height="180" /><img class="lazy-image" data-src="assets/css.svg"
+                              alt="CSS illustration" width="320" height="180" /><img class="lazy-image"
+                              data-src="assets/javascript.svg" alt="JavaScript illustration" width="320" height="180" />
+                    </div>
+               </div>
+               <div class="feature-panel">
+                    <h3>Discover something new</h3><button id="surpriseButton">✦ Surprise me</button>
+                    <p id="surpriseResult" role="status"></p>
+               </div>
+          </section>
+          <section class="stats-section">
+               <p class="eyebrow">NOVA IN NUMBERS</p>
+               <h2>Learning, one step at a time.</h2>
+               <div class="stats">
+                    <div><strong class="counter" data-target="3">0</strong><span>core technologies</span></div>
+                    <div><strong class="counter" data-target="9">0</strong><span>jQuery enhancements</span></div>
+                    <div><strong class="counter" data-target="100">0</strong><span>percent curiosity</span></div>
+               </div>
+          </section>
+          <section id="learning">
+               <p class="eyebrow">YOUR LEARNING PATH</p>
+               <h2>Find your starting point.</h2>
+               <p>Answer two quick questions. No information is stored.</p>
+               <div class="panel wizard">
+                    <div id="wizardStep1">
+                         <h3>Step 1 of 2 — Experience</h3><label for="experience">Experience</label><select
+                              id="experience">
+                              <option value="beginner">Beginner</option>
+                              <option value="some">Some experience</option>
+                         </select><button class="action" id="wizardNext">Next →</button>
+                    </div>
+                    <div hidden="" id="wizardStep2">
+                         <h3>Step 2 of 2 — Interest</h3><label for="interest">Your interest</label><select
+                              id="interest">
+                              <option value="html">Structure</option>
+                              <option value="css">Design</option>
+                              <option value="javascript">Interactivity</option>
+                         </select>
+                         <div class="wizard-actions"><button id="wizardBack">← Back</button><button class="action"
+                                   id="wizardFinish">See recommendation</button></div>
+                    </div>
+                    <p id="wizardResult" role="status"></p>
+               </div>
+          </section>
+          <section class="split" id="register">
+               <div>
+                    <p class="eyebrow">
+                         JOIN THE COMMUNITY
+                    </p>
+                    <h2>
+                         Stay curious.
+                         <br />
+                         <em>
+                              Keep learning.
+                         </em>
+                    </h2>
+                    <p>
+                         Try our demo registration form. No information is stored or sent.
+                    </p>
+               </div>
+               <div class="panel">
+                    <h3>
+                         Create an account
+                    </h3>
+                    <form id="registrationForm" novalidate="">
+                         <label for="emailRegistration">
+                              Email
+                         </label>
+                         <input id="emailRegistration" placeholder="you@example.com" type="email" />
+                         <small id="emailError">
+                         </small>
+                         <label for="passwordRegistration">
+                              Password
+                         </label>
+                         <input id="passwordRegistration" placeholder="At least 8 characters" type="password" />
+                         <small id="passwordError">
+                         </small>
+                         <label for="passwordCheck">
+                              Confirm password
+                         </label>
+                         <input id="passwordCheck" placeholder="Repeat password" type="password" />
+                         <small id="confirmError">
+                         </small>
+                         <button class="action" type="submit">
+                              Create account ↗
+                         </button>
+                         <p id="registrationStatus" role="status">
+                         </p>
+                    </form>
+               </div>
+          </section>
+          <section id="faq">
+               <p class="eyebrow">
+                    GOOD TO KNOW
+               </p>
+               <h2>
+                    Frequently asked
+                    <em>
+                         questions.
+                    </em>
+               </h2>
+               <div class="faqs">
+                    <div class="faq">
+                         <button aria-controls="a1" aria-expanded="false">
+                              What is NovaWiki?
+                              <span>
+                                   +
+                              </span>
+                         </button>
+                         <div class="answer" hidden="" id="a1">
+                              <p>
+                                   A small educational wiki about web technologies, made with HTML, CSS, and JavaScript.
+                              </p>
+                         </div>
+                    </div>
+                    <div class="faq">
+                         <button aria-controls="a2" aria-expanded="false">
+                              Do I need programming experience?
+                              <span>
+                                   +
+                              </span>
+                         </button>
+                         <div class="answer" hidden="" id="a2">
+                              <p>
+                                   No, this website introduces beginner-friendly web development topics.
+                              </p>
+                         </div>
+                    </div>
+                    <div class="faq">
+                         <button aria-controls="a3" aria-expanded="false">
+                              Is registration free?
+                              <span>
+                                   +
+                              </span>
+                         </button>
+                         <div class="answer" hidden="" id="a3">
+                              <p>
+                                   This is a free demonstration. No real account is created.
+                              </p>
+                         </div>
+                    </div>
+               </div>
+          </section>
+     </main>
+     <footer>
+          <strong>
+               ✳ NovaWiki
+          </strong>
+          <p>Astana IT University · Frontend Assignment #6</p>
+          <p>
+               Team: Alikhan, Zhandos, Adilzhan · Group: SE-2516
+          </p>
+     </footer>
+     <div class="backdrop" hidden="" id="modalBackdrop">
+          <div aria-labelledby="modalTitle" aria-modal="true" class="modal" role="dialog">
+               <button aria-label="Close" class="close" id="closeModal">
+                    ×
+               </button>
+               <h2 id="modalTitle">
+                    Contact us
+               </h2>
+               <p>
+                    Send a demo message.
+               </p>
+               <form id="contactForm">
+                    <label for="contactName">
+                         Name
+                    </label>
+                    <input id="contactName" required="" />
+                    <label for="contactEmail">
+                         Email
+                    </label>
+                    <input id="contactEmail" required="" type="email" />
+                    <label for="contactMessage">
+                         Message
+                    </label>
+                    <textarea id="contactMessage" required="" rows="3"></textarea>
+                    <button class="action" type="submit">
+                         Send message
+                    </button>
+                    <p id="contactStatus" role="status">
+                    </p>
+               </form>
+          </div>
+     </div>
+</body>
+
+</html>
